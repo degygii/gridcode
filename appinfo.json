@@ -1,0 +1,31 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Lukas Gygi",
+    "longName": "Grid Code based on Grid lite",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/source-code-pro.light.ttf",
+                "name": "FONT_SOURCELIGHT_47",
+                "type": "font"
+            },
+            {
+                "file": "images/grid_logo.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
+            }
+        ]
+    },
+    "shortName": "Grid Code",
+    "uuid": "da656d5e-9ac1-4ac7-afc4-5d8505dda588",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
