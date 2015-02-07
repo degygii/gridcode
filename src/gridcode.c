@@ -11,6 +11,13 @@ char grid[16][2];
 GColor foregroundcolor;
 GColor backgroundcolor;
 
+static void bluetooth_connection_callback(bool connected) {
+  if(!connected)
+    vibes_double_pulse();
+  else
+    vibes_long_pulse();
+}
+
 void draw_time(){
   time_t now = time(NULL);
   struct tm *tick_time = localtime(&now);
@@ -89,6 +96,8 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   }
 }
 
+
+
 static void init() {
   backgroundcolor = GColorBlack;
   foregroundcolor = GColorWhite;
@@ -119,12 +128,14 @@ static void init() {
   draw_date();
 
   tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
+  bluetooth_connection_service_subscribe(bluetooth_connection_callback);
 }
 
 static void deinit() {
   for(int i = 0; i<16; i++){
     text_layer_destroy(time_layer[i]);
   }
+  //bluetooth_connection_service_unsubscribe();
   window_destroy(window);
 }
 
